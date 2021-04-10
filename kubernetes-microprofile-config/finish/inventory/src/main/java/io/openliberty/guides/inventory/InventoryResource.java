@@ -8,7 +8,7 @@
  * Contributors:
  *     IBM Corporation - Initial implementation
  *******************************************************************************/
-package inventory;
+package io.openliberty.guides.inventory;
 
 import java.util.Properties;
 import javax.enterprise.context.RequestScoped;
@@ -20,8 +20,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import inventory.model.InventoryList;
-import inventory.client.SystemClient;
+import io.openliberty.guides.inventory.model.InventoryList;
+import io.openliberty.guides.inventory.client.SystemClient;
 
 @RequestScoped
 @Path("/systems")

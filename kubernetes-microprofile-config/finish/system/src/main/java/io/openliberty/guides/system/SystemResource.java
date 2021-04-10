@@ -1,4 +1,3 @@
-// tag::copyright[]
 /*******************************************************************************
  * Copyright (c) 2017, 2019 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
@@ -9,8 +8,7 @@
  * Contributors:
  *     IBM Corporation - Initial implementation
  *******************************************************************************/
-// end::copyright[]
-package system;
+package io.openliberty.guides.system;
 
 // CDI
 import javax.enterprise.context.RequestScoped;
@@ -29,6 +27,10 @@ import org.eclipse.microprofile.config.inject.ConfigProperty;
 public class SystemResource {
 
   @Inject
+  @ConfigProperty(name = "APP_NAME")
+  private String appName;
+
+  @Inject
   @ConfigProperty(name = "HOSTNAME")
   private String hostname;
 
@@ -37,7 +39,7 @@ public class SystemResource {
   public Response getProperties() {
     return Response.ok(System.getProperties())
       .header("X-Pod-Name", hostname)
-      .header("X-App-Name", "system")
+      .header("X-App-Name", appName)
       .build();
   } 
 }
